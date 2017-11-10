@@ -7,6 +7,8 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using System.Data.Entity;
+using ReWriteURL.Models;
 
 namespace ReWriteURL
 {
@@ -17,7 +19,8 @@ namespace ReWriteURL
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            Database.SetInitializer<ProductDBContext>(new ProductDBInitializer());
         }
     }
 }
